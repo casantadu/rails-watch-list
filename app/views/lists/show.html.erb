@@ -2,17 +2,28 @@
 #display bookmarks of the list
 #display buton to add bookmark
 
- <h1><%= @list.name %></h1>
+ <div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url(<%= "https://unsplash.com/s/photos/movie" %>);">
+  <div class="container text-center">
+    <h1><%= @list.name %></h1>
+  </div>
 
- <% @list.bookmarks.each do |bookmark| %>
- <p><%= bookmark.movie.title %> |
-  <%= bookmark.comment %> |
-  <%= link_to 'Delete', bookmark_path(bookmark), method: :delete %></p>
+</div>
+<div class="container my-5">
+  <div class="row">
+    <div class="col">
+      <div class="cards">
+        <% @list.bookmarks.each do |bookmark| %>
 
+          <div class="card-category" style="background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.3)), url(<%= 'bookmark.movie.poster_url' %>)">
+            <p><%= bookmark.movie.title %></p>
+            <p><%= bookmark.comment %></p>
+             <%= link_to 'Delete', bookmark_path(bookmark), method: :delete %>
+            <% end %>
+          </div>
 
- <% end %>
+      </div>
+    </div>
 
-<br>
-
+  </div>
+</div>
 <%= link_to 'Back to list', lists_path %> | <%= link_to 'Add a new bookmark', new_list_bookmark_path(@list) %>
-
