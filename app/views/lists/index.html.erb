@@ -1,0 +1,20 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Lists</h1>
+
+
+
+  <tbody>
+    <% @lists.each do |list| %>
+      <tr>
+        <br>
+        <td><%= list.name %></td>
+
+        <td><%= link_to 'Show', list %></td>
+        <br>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<p><%= link_to 'Create new List', new_list_path %></p>

@@ -1,0 +1,18 @@
+#display name of list
+#display bookmarks of the list
+#display buton to add bookmark
+
+ <h1><%= @list.name %></h1>
+
+ <% @list.bookmarks.each do |bookmark| %>
+ <p><%= bookmark.movie.title %> |
+  <%= bookmark.comment %> |
+  <%= link_to 'Delete', bookmark_path(bookmark), method: :delete %></p>
+
+
+ <% end %>
+
+<br>
+
+<%= link_to 'Back to list', lists_path %> | <%= link_to 'Add a new bookmark', new_list_bookmark_path(@list) %>
+
